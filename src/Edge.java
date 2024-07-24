@@ -2,64 +2,70 @@ import java.io.Serial;
 import java.io.Serializable;
 
 /**
- * Represents an edge in a graph structure.
- * This class is designed to be lightweight and serializable.
+ * Represents an edge in a graph, connecting two nodes with a strength value.
+ * Implements the Serializable interface to allow for object serialization.
  *
- * @param <T> The type of data stored in the connected nodes.
+ * @param <T> The type of data stored in the nodes.
  */
 class Edge<T> implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private final String sourceId;       // ID of the source node
-    private final String targetId;       // ID of the target node
-    private volatile float strength;     // Strength of the connection
+    //The source node of the edge.
+    private final Node<T> source;
+
+    //The target node of the edge.
+    private final Node<T> target;
+
+    //The strength of the edge.
+    private float strength;
 
     /**
-     * Constructs a new Edge between two nodes.
+     * Constructs a new Edge object.
      *
-     * @param source   The source node.
-     * @param target   The target node.
-     * @param strength The strength of the connection.
+     * @param source The source node of the edge.
+     * @param target The target node of the edge.
+     * @param strength The strength of the edge.
      */
     public Edge(Node<T> source, Node<T> target, float strength) {
-        this.sourceId = source.getId();
-        this.targetId = target.getId();
+        this.source = source;
+        this.target = target;
         this.strength = strength;
     }
 
     /**
-     * @return The ID of the source node.
+     * Returns the source node of the edge.
+     *
+     * @return The source node.
      */
-    public String getSourceId() {
-        return sourceId;
+    public Node<T> getSource() {
+        return source;
     }
 
     /**
-     * @return The ID of the target node.
+     * Returns the target node of the edge.
+     *
+     * @return The target node.
      */
-    public String getTargetId() {
-        return targetId;
+    public Node<T> getTarget() {
+        return target;
     }
 
     /**
-     * @return The strength of the connection.
+     * Returns the strength of the edge.
+     *
+     * @return The strength of the edge.
      */
     public float getStrength() {
         return strength;
     }
 
     /**
-     * Sets a new strength for the connection.
+     * Sets the strength of the edge.
      *
-     * @param strength The new strength to set.
+     * @param strength The new strength of the edge.
      */
     public void setStrength(float strength) {
         this.strength = strength;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("Edge{source: %s, target: %s, strength: %.2f}", sourceId, targetId, strength);
     }
 }

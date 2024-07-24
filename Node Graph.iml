@@ -7,5 +7,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="google.code.gson" level="project" />
+    <orderEntry type="library" name="guru.nidi.graphviz.java" level="project" />
+    <orderEntry type="library" name="graphstream.gs.core" level="project" />
   </component>
 </module>
